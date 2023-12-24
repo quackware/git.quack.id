@@ -2,11 +2,23 @@
   "tasks": {
     "ci": "deno test -A --lock=deno.lock",
     "write": "deno test -A -r --lock=deno.lock --lock-write",
-    "start": "./server.ts"
+    "start": "./server.ts",
+    "deploy": "deployctl deploy --project=git-quack-id --prod server.ts --exclude=__test__,.github"
   },
   "lint": {
     "rules": {
-      "exclude": ["no-inferrable-types"]
+      "exclude": [
+        "no-inferrable-types"
+      ]
     }
+  },
+  "deploy": {
+    "project": "b9a3e3ed-7a50-46e5-8f9e-79e633214752",
+    "exclude": [
+      "__test__",
+      ".github"
+    ],
+    "include": [],
+    "entrypoint": "server.ts"
   }
 }
